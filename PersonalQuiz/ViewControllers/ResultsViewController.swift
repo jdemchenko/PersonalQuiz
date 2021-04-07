@@ -40,7 +40,7 @@ extension ResultsViewController { // Нашел вот такое решение
     }
     
     // Но проще понимаю поддаются подобные алгоритмы(закоментированный):
-    
+    // изначально передавал не AnimalType, а Answer
 //    private func determiningTheMostCommonAnimalTwoCycle(choosenAnswers: [Answer]) -> Answer {
 //        var checkCounter = 0
 //        var mostAnimal: Answer!
