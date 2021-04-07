@@ -14,17 +14,22 @@ class ResultsViewController: UIViewController {
     
     var choosenAnswers: [Answer]!
     var resultAnimal: Answer!
+    
+    // 1. Передать сюда массив с ответами -
+    // 2. Определить наиболее часто встречающийся тип животного -
+    // 3. Отобразить результат в соответсвии с этим животным -
+    // 4. Избавиться от кнопки возврата назад на экране результатов -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
-        resultAnimal = determiningTheMostCommonAnimal()
-        setResultVC(for: resultAnimal.type)
+        resultAnimal = determiningTheMostCommonAnimal(choosenAnswers: choosenAnswers)
+        setResultVC(for: resultAnimal)
     }
 }
 
 extension ResultsViewController {
-    private func determiningTheMostCommonAnimal() -> Answer {
+    private func determiningTheMostCommonAnimal(choosenAnswers: [Answer]) -> Answer {
         var checkCounter = 0
         var mostAnimal: Answer!
         for answer in choosenAnswers {
@@ -42,9 +47,9 @@ extension ResultsViewController {
         return mostAnimal
     }
     
-    private func setResultVC(for animal: AnimalType) {
-        resultAnimalEmoji.text = "Вы - \(animal.rawValue)"
-        resultAnimalText.text = animal.definition
+    private func setResultVC(for animal: Answer) {
+        resultAnimalEmoji.text = "Вы - \(animal.type.rawValue)"
+        resultAnimalText.text = animal.type.definition
     }
     
 }
